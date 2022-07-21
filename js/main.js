@@ -31,17 +31,18 @@ function addTask(){
     //condition
     if(item.length!==0){
         //createLi
-        li = document.createElement('li')
+        let li = document.createElement('li')
         li.textContent=item
+        
         //createDiscard
-        discard = document.createElement('button')
-        discard.textContent='×'
+        let discard=document.createElement('button')
+        discard.textContent = '×'
         discard.onclick=()=>{
             ul.removeChild(li)
         }
         //append
-        li.append(discard)
         ul.append(li)
+        li.append(discard)
     }else{
         alert('Please, add a new task.')
     }
@@ -49,13 +50,6 @@ function addTask(){
     newTask.value = ''
 }
 
-//notTask
-if(ul.length===0){
-    nothing = document.getElementById('nothing')
-    p = document.createElement('p')
-    nothing.append(p)
-    p.textContent = "You haven't pendings tasks."
-}
 
 //events
 add.onclick=(e)=>{
