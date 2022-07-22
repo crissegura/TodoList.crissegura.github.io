@@ -23,7 +23,7 @@ if(date.getDay()===0){
 //newTask
 let newTask = document.getElementById('newTask')
 let add = document.getElementById('add')
-let ul = document.getElementById('ul')
+let list = document.getElementById('list')
 
 //functionAddTask
 function addTask(){
@@ -31,18 +31,18 @@ function addTask(){
     //condition
     if(item.length!==0){
         //createLi
-        let li = document.createElement('li')
-        li.textContent=item
+        let h5 = document.createElement('h5')
+        h5.textContent=item
         
         //createDiscard
         let discard=document.createElement('button')
         discard.textContent = '×'
         discard.onclick=()=>{
-            ul.removeChild(li)
+            list.removeChild(h5)
         }
         //append
-        ul.append(li)
-        li.append(discard)
+        list.append(h5)
+        h5.append(discard)
     }else{
         alert('Please, add a new task.')
     }
@@ -55,5 +55,4 @@ function addTask(){
 add.onclick=(e)=>{
     e.preventDefault()
     addTask()
-    
 }
