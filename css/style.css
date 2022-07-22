@@ -9,6 +9,7 @@ body{
     background-size: cover;
     color: white;
     font-family: 'Cinzel', serif;
+    min-height: 90vh;
 }
 main{
     padding: 10px;
@@ -45,9 +46,19 @@ input{
     height: 50px;
     border-radius: 10px;
 }
+#clear{
+    margin: 10px;
+    font-family: 'Cinzel', serif;
+    width: 150px;
+    height: 40px;
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    background-color: rgba(224, 31, 31, 0.781);
+}
 #add{
     width: 30px;
-    height: 35px;
+    height: 30px;
     color: white;
     font-size: 25px;
     border-radius: 10px;

@@ -24,13 +24,14 @@ if(date.getDay()===0){
 let newTask = document.getElementById('newTask')
 let add = document.getElementById('add')
 let list = document.getElementById('list')
+let clear = document.getElementById('clear')
 
 //functionAddTask
 function addTask(){
     item = newTask.value
     //condition
     if(item.length!==0){
-        //createLi
+        //createH5
         let h5 = document.createElement('h5')
         h5.textContent=item
         
@@ -39,10 +40,12 @@ function addTask(){
         discard.textContent = '×'
         discard.onclick=()=>{
             list.removeChild(h5)
+            nothingDisplay()
         }
         //append
         list.append(h5)
         h5.append(discard)
+
     }else{
         alert('Please, add a new task.')
     }
@@ -50,9 +53,31 @@ function addTask(){
     newTask.value = ''
 }
 
-
+//nothing
+function nothingDisplay(){
+    let nothing = document.getElementById('nothing')
+    let h5s = document.querySelectorAll('h5')
+    if(h5s.length!==0){
+        nothing.textContent = ''
+    }else{
+        nothing.textContent = "You haven't any pending task."
+    }
+}
 //events
 add.onclick=(e)=>{
     e.preventDefault()
     addTask()
+    nothingDisplay()
+}
+
+
+clear.onclick=()=>{
+    let h5s = document.querySelectorAll('h5')
+    if(h5s.length!==0){
+        let clearAll = list
+        clearAll.textContent=''
+        nothingDisplay()
+    }else{
+        alert("You haven't any pending task.")
+    }            
 }
