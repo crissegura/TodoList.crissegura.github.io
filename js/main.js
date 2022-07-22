@@ -60,7 +60,7 @@ function nothingDisplay(){
     if(h5s.length!==0){
         nothing.textContent = ''
     }else{
-        nothing.textContent = "You haven't any pending task."
+        nothing.textContent = "You don't have any pending task."
     }
 }
 //events
