@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.705),rgba(0, 0, 0, 0.863)), url(/img/backimg.jpg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.705),rgba(0, 0, 0, 0.863)), url(../css/img/backimg.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
