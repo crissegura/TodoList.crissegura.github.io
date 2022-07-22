@@ -78,6 +78,6 @@ clear.onclick=()=>{
         clearAll.textContent=''
         nothingDisplay()
     }else{
-        alert("You haven't any pending task.")
+        alert("You don't have any pending task.")
     }            
 }
