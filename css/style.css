@@ -64,6 +64,15 @@ input{
     border-radius: 10px;
     background-color: rgba(26, 138, 26, 0.842);
 }
+#list{
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+#divTask{
+    display: flex;
+    align-items: baseline;
+}
 li{
     margin: 10px;
     min-width:280px;
