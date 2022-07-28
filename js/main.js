@@ -28,6 +28,10 @@ function addTask(){
         
         //createDiscard
         let discard=document.createElement('button')
+        discard.style.backgroundColor='   rgba(236, 27, 27, 0.842)'
+        discard.style.width='25px'
+        discard.style.borderRadius='10px'
+        discard.style.border=' solid 1px white'
         discard.onclick=()=>{
             list.removeChild(li)
             nothingDisplay()
@@ -44,7 +48,12 @@ function addTask(){
         localStorage.setItem('tasks',JSON.stringify(tasks))
 
     }else{
-        alert('Please, add a new task.')
+        Swal.fire({
+            icon: 'warning',
+            title: 'please add a task',
+            timer: 1500,
+            showConfirmButton: false
+          })
     }
 }
 //functionNothingDisplay
@@ -67,11 +76,34 @@ add.onclick=(e)=>{
 clear.onclick=()=>{
     let lis = document.querySelectorAll('li')
     if(lis.length!==0){
-        let clearAll = list
-        clearAll.textContent=''
-        nothingDisplay()
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "you are going to delete every tasks",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Clear!',
+            cancelButtonColor: '#d33',
+          }).then((result) => {
+            if (result.isConfirmed) {
+                let clearAll = list
+                clearAll.textContent=''
+                nothingDisplay()
+                Swal.fire({
+                    title:'every tasks were deleted!',
+                    icon:'success',
+                    timer: '1500',
+                    showConfirmButton: false
+                })
+            }
+          })
     }else{
-        alert("You don't have any pending task.")
+        Swal.fire({
+            title:"You don't have any pending task.",
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }            
 }
 //functionLocalStorageGetItem
@@ -80,6 +112,10 @@ function getItem(){
     
     while (saved.length >0){
     let discard=document.createElement('button')
+    discard.style.backgroundColor='   rgba(236, 27, 27, 0.842)'
+    discard.style.width='25px'
+    discard.style.borderRadius='10px'
+    discard.style.border=' solid 1px white'
     discard.onclick=()=>{
         list.removeChild(li)
         nothingDisplay()

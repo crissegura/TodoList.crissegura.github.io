@@ -86,14 +86,6 @@ li{
     display: flex;
     justify-content: space-between;
 }
-button{
-    width: 30px;
-    height: 30px;
-    color: white;
-    font-size: 25px;
-    border-radius: 10px;
-    background-color: rgba(224, 19, 19, 0.842);
-}
 #nothing{
     margin-top: 10px;
     font-weight: bold;
