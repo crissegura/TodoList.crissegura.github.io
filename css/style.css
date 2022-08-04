@@ -59,10 +59,6 @@ input{
     border-radius: 10px;
     background-color: rgba(224, 31, 31, 0.781);
 }
-#clear:hover{
-    scale: (9);
-}
-
 #add{
     width: 30px;
     height: 30px;
@@ -94,6 +90,7 @@ li{
     list-style: none;
 }
 li:hover{
+    transition: 1s;
     background-color: rgb(247, 77, 77);
     text-decoration: line-through;
 }
