@@ -5,8 +5,10 @@ let date = new Date()
 let week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 let months = ['January','February','March','April','May','June','July','August','September','October','November','December']
 
+//showDayOfWeek
 dayString.textContent =week[date.getDay()]
 
+//showDate
 dayNumber.textContent = (months[date.getMonth()]+' / '+date.getDate()+' / '+date.getFullYear())
 
 
@@ -22,23 +24,21 @@ function addTask(){
     item = newTask.value
     //condition
     if(item.length!==0){
-        //createH5
+
+        //createLi
         let li = document.createElement('li')
         li.textContent=item
         
-        //createDiscard
-        let discard=document.createElement('button')
-        discard.style.backgroundColor='   rgba(236, 27, 27, 0.842)'
-        discard.style.width='25px'
-        discard.style.borderRadius='10px'
-        discard.style.border=' solid 1px white'
-        discard.onclick=()=>{
+        //deleteTask
+        li.onclick=()=>{
             list.removeChild(li)
-            nothingDisplay()
+            let taskPosition = tasks.indexOf(li.textContent)
+            tasks.splice(taskPosition,1)
+            localStorage.setItem('tasks',JSON.stringify(tasks))
         }
+
         //append
         list.append(li)
-        li.append(discard)
         tasks.push(li.textContent)
 
         //clearInput
@@ -56,29 +56,20 @@ function addTask(){
           })
     }
 }
-//functionNothingDisplay
-function nothingDisplay(){
-    let nothing = document.getElementById('nothing')
-    let lis = document.querySelectorAll('li')
-    if(lis.length!==0){
-        nothing.textContent = ''
-    }else{
-        nothing.textContent = "You don't have any pending task."
-    }
-}
+
 //events
 add.onclick=(e)=>{
     e.preventDefault()
     addTask()
-    nothingDisplay()
 }
+
 //Clear
 clear.onclick=()=>{
     let lis = document.querySelectorAll('li')
     if(lis.length!==0){
         Swal.fire({
             title: 'Are you sure?',
-            text: "you are going to delete every tasks",
+            text: "you are going to delete every task",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -88,9 +79,9 @@ clear.onclick=()=>{
             if (result.isConfirmed) {
                 let clearAll = list
                 clearAll.textContent=''
-                nothingDisplay()
+                localStorage.setItem('tasks',JSON.stringify(tasks))
                 Swal.fire({
-                    title:'every tasks were deleted!',
+                    title:'every task were deleted!',
                     icon:'success',
                     timer: '1500',
                     showConfirmButton: false
@@ -106,27 +97,25 @@ clear.onclick=()=>{
           })
     }            
 }
+
 //functionLocalStorageGetItem
 function getItem(){
     let saved = JSON.parse(localStorage.getItem('tasks'))
-    
-    while (saved.length >0){
-    let discard=document.createElement('button')
-    discard.style.backgroundColor='   rgba(236, 27, 27, 0.842)'
-    discard.style.width='25px'
-    discard.style.borderRadius='10px'
-    discard.style.border=' solid 1px white'
-    discard.onclick=()=>{
-        list.removeChild(li)
-        nothingDisplay()
-    }
+    for (e of saved){
+        let li = document.createElement('li')
+        li.textContent = e
+        list.append(li)
 
-    li = document.createElement('li')
-    li.textContent = saved.pop()
-    li.append(discard)
-    list.append(li)
+        li.onclick=()=>{
+            list.removeChild(li)
+            let taskPosition = saved.indexOf(li.textContent)
+            saved.splice(taskPosition,1)
+            localStorage.setItem('tasks',JSON.stringify(saved))
+        }
     }
 }
 
+//localStoraGetItem
 getItem()
+
 
