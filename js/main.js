@@ -1,3 +1,30 @@
+//modeLigthOrDark
+let ligthMode = document.getElementById('ligthMode')
+let darkMode = document.getElementById('darkMode')
+
+ligthMode.onclick = ()=>{
+    ligthModeF()
+}
+darkMode.onclick = ()=>{
+    darkModeF()
+}
+
+function ligthModeF(){
+    let body = document.getElementById('body')
+    body.style.backgroundColor='white'
+    body.style.color='black'
+    ligthMode.style.display='none'
+    darkMode.style.display='block'
+}
+
+function darkModeF(){
+    let body = document.getElementById('body')
+    body.style.backgroundColor='rgb(7, 6, 6)'
+    body.style.color='white'
+    ligthMode.style.display='block'
+    darkMode.style.display='none'
+}
+
 //date
 let dayString = document.getElementById('dayOfWeek')
 let dayNumber = document.getElementById('dateNumber')
