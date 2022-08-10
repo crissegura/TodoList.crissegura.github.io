@@ -9,15 +9,9 @@
     position: relative;
     min-height: 95vh;
 }
-#ligthMode,#darkMode{
-    background-color: transparent;
-    margin-top: 25px;
-    margin-left: 25px;
-    border: none;
-    width: 40px;
-}
-.darkMode{
-    display: none;
+.body.dark{
+    background-color: rgb(226, 224, 224);
+    color: black;
 }
 
 main{
@@ -104,4 +98,39 @@ li:hover{
     background-color: rgb(247, 77, 77);
     text-decoration: line-through;
     
+}
+.mode{
+    margin: 10px;
+    background-color: rgba(221, 154, 28, 0.747);
+    border-radius: 50px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    
+}
+.mode::after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: #f1f1f1;
+    border-radius: 50px;
+    margin:2px;
+    left: 0;
+    right: unset;
+}
+.mode.active{
+    background-color: #444f72;
+}
+.mode.active::after{
+    right: 0;
+    left: unset;
+}
+span{
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 2px;
 }
