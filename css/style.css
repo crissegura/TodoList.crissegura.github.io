@@ -3,23 +3,22 @@
     padding: 0;
 }
 .body{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.096),rgba(0, 0, 0, 0.096)),url(../css/img/ligthmode.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: black;
+    font-family: 'Cinzel', serif;
+    position: relative;
+    min-height: 95vh;
+}
+.body.dark{
     background-image:linear-gradient(rgba(0, 0, 0, 0.247),rgba(0, 0, 0, 0.904)),url(../css/img/darkmode.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     color: white;
-    font-family: 'Cinzel', serif;
-    position: relative;
-    min-height: 95vh;
-}
-.body.dark{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.096),rgba(0, 0, 0, 0.096)),url(../css/img/ligthmode.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    color: black;
 }
 
 main{
@@ -39,7 +38,7 @@ footer{
 }
 h1{
     text-align: center;
-    font-size: 70px;
+    font-size: 60px;
     margin-top:20px;
     font-weight: bold;
 }
@@ -110,7 +109,7 @@ li{
 }
 .mode{
     margin: 10px;
-    background-color: rgba(221, 154, 28, 0.747);
+    background-color: #444f72;
     border-radius: 50px;
     border: none;
     position: relative;
@@ -131,7 +130,7 @@ li{
     right: unset;
 }
 .mode.active{
-    background-color: #444f72;
+    background-color:rgb(129, 180, 182);
 }
 .mode.active::after{
     right: 0;
