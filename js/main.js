@@ -1,12 +1,9 @@
 //mode
 const mode = document.getElementById('mode')
-
 mode.onclick = ()=>{
     document.body.classList.toggle('dark')
     mode.classList.toggle('active')
 }
-
-
 
 //date
 let dayString = document.getElementById('dayOfWeek')

@@ -3,14 +3,22 @@
     padding: 0;
 }
 .body{
-    background-color: rgb(7, 6, 6);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.247),rgba(0, 0, 0, 0.904)),url(../css/img/darkmode.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: white;
     font-family: 'Cinzel', serif;
     position: relative;
     min-height: 95vh;
 }
 .body.dark{
-    background-color: rgb(226, 224, 224);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.096),rgba(0, 0, 0, 0.096)),url(../css/img/ligthmode.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: black;
 }
 
@@ -94,10 +102,11 @@ li{
     list-style: none;
     border: solid .5px black;
 }
-li:hover{
+@media(min-width:600px){
+    li:hover{
     background-color: rgb(247, 77, 77);
     text-decoration: line-through;
-    
+    }
 }
 .mode{
     margin: 10px;
